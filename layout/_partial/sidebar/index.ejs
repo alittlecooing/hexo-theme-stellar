@@ -29,32 +29,65 @@ function layoutWidgets() {
   return el;
 }
 function layoutFooterDiv() {
-  if (page.layout !== 'wiki' && theme.footer.social && theme.footer.social.length > 0) {
+  if ((page.layout !== 'wiki' && theme.footer.social && theme.footer.social.length > 0) || (theme.footer.beian && theme.footer.beian.length > 0)) {
     var el = '<footer class="footer dis-select">';
-    el += '<div class="social-wrap">';
-    theme.footer.social.forEach(item => {
-      if (item.icon && (item.url || item.onclick)) {
-        el += '<a class="social"';
-        if (item.title) {
-          el += ' title="' + item.title + '"';
-        }
-        if (item.url) {
-          el += ' href="' + url_for(item.url) + '"';
-          if (item.url.includes('://')) {
-            el += ' target="_blank" rel="external nofollow noopener noreferrer"';
-          } else {
-            el += ' rel="noopener noreferrer"';
+    if (page.layout !== 'wiki' && theme.footer.social && theme.footer.social.length > 0) {
+      el += '<div class="social-wrap">';
+      theme.footer.social.forEach(item => {
+        if (item.icon && (item.url || item.onclick)) {
+          el += '<a class="social"';
+          if (item.title) {
+            el += ' title="' + item.title + '"';
           }
-        } else if (item.onclick) {
-          item.onclick = item.onclick.replace(/"|\'/g, '&quot;');
-          el += ' onclick="' + item.onclick + '"';
+          if (item.url) {
+            el += ' href="' + url_for(item.url) + '"';
+            if (item.url.includes('://')) {
+              el += ' target="_blank" rel="external nofollow noopener noreferrer"';
+            } else {
+              el += ' rel="noopener noreferrer"';
+            }
+          } else if (item.onclick) {
+            item.onclick = item.onclick.replace(/"|\'/g, '&quot;');
+            el += ' onclick="' + item.onclick + '"';
+          }
+          el += '>';
+          el += item.icon;
+          el += '</a>';
         }
-        el += '>';
-        el += item.icon;
-        el += '</a>';
-      }
-    });
-    el += '</div>';
+      });
+      el += '</div>';
+    }
+    if (theme.footer.beian && theme.footer.beian.length > 0) {
+      el += '<div class="proj-wrap">';
+      theme.footer.beian.forEach(item => {
+        if ((item.icon || item.text) && (item.url || item.onclick)) {
+          el += '<a class="item"';
+          if (item.title) {
+            el += ' title="' + item.title + '"';
+          }
+          if (item.url) {
+            el += ' href="' + url_for(item.url) + '"';
+            if (item.url.includes('://')) {
+              el += ' target="_blank" rel="external nofollow noopener noreferrer"';
+            } else {
+              el += ' rel="noopener noreferrer"';
+            }
+          } else if (item.onclick) {
+            item.onclick = item.onclick.replace(/"|\'/g, '&quot;');
+            el += ' onclick="' + item.onclick + '"';
+          }
+          el += '>';
+          if (item.icon){
+            el += item.icon;
+          }
+          if (item.text){
+            el += item.text;
+          }
+          el += '</a>';
+        }
+      });
+      el += '</div>';
+    }
     el += '</footer>';
     return el;
   } else {
