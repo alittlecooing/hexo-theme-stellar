@@ -8,11 +8,21 @@
 'use strict';
 
 hexo.extend.tag.register('link', function(args) {
-  args = hexo.args.map(args, ['img'], ['url', 'title', 'description']);
+  args = hexo.args.map(args, ['img', 'bg', 'color'], ['url', 'title', 'description']);
 
   var el = '';
   el += '<div class="tag-plugin link dis-select">';
   el += '<a class="link-card" title="' + args.title + '" href="' + args.url + '"';
+  if (args.bg || args.color) {
+    el += 'style="';
+    if (args.bg) {
+      el += 'background:' + args.bg + ';';
+    }
+    if (args.color) {
+      el += 'color:' + args.color + ';';
+    }
+    el += '"';
+  }
   if (args.url.includes('://')) {
     el += ' target="_blank" rel="external nofollow noopener noreferrer"';
   }

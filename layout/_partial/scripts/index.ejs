@@ -123,6 +123,17 @@
   }
 </script>
 
+<!-- jinrishici -->
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script type="text/javascript">
+  jinrishici.load(function(result) {
+    var sentence = document.querySelector("#jinrishici_sentence")
+    var info = document.querySelector("#jinrishici_info")
+    sentence.innerHTML = result.data.content
+    info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+  });
+</script>
+
 <!-- required -->
 <% if (theme.stellar.cdn_js) { %>
   <%- js({src: theme.stellar.cdn_js, async: true}) %>
