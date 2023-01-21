@@ -29,19 +29,22 @@
 
 .proj-wrap
   display: grid
-  grid-gap: 0.25rem 0.25rem
+  grid-gap: 0.25rem
+  margin-bottom: 0.25rem
   a.item
-    border-radius: 4px
+    display: flex
+    justify-content: center
+    align-items: center
     font-size: $fs-13
     font-weight: 500
     color: var(--text-p2)
     background: var(--block)
     border: 1px solid var(--block-border)
+    border-radius: 6px
     overflow: hidden
     padding: .75em
-    text-align: center
-    svg
-      margin-right: .5em
+    img
+      margin-right: .05em
     &:hover
       color: $color-hover
       background: var(--card)
