@@ -6,12 +6,10 @@ stellar:
   cdn_css: # Use cdn links instead of /css/main.css
   cdn_js: # Use cdn links instead of /js/main.js
 
-
 ######## head tags ########
 open_graph:
   enable: true
   twitter_id: # for open_graph meta
-
 
 ######## Sidebar ########
 sidebar:
@@ -46,8 +44,6 @@ sidebar:
       content:
         - '欢迎光临小站，[Stellar](https://github.com/xaoxuu/hexo-theme-stellar/) 是一个支持 wiki 的 hexo 主题，适合综合型站点使用。同时也拥有简约而精美的视觉设计和丰富的标签插件，帮助您简单从容地应对各种场合。'
 
-
-
 ######## Article ########
 article:
   # 如果没有指定封面，是否根据 tags 作为关键词搜索封面？
@@ -67,8 +63,6 @@ article:
     enable: false
     max_count: 5
     auto_cover: true # 如果没有封面就根据 tags 作为关键词搜索封面，开了此项将不会自动从文章中提取首张图片作为封面了。
-
-
 
 ######## Comments ########
 comments:
