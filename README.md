@@ -38,3 +38,4 @@ https://xaoxuu.com
 Issues: https://github.com/xaoxuu/hexo-theme-stellar/issues/
 
 Discussions: https://github.com/xaoxuu/hexo-theme-stellar/discussions/
+ 
